@@ -1,0 +1,42 @@
+<h2 class="text center" style="margin-left: 20px;"> Search Results:  </h5>
+
+    <hr>
+
+    <div class="container">
+
+        <div class="row justify-content-center m-4">
+
+            {% if products %}
+
+                {% for product in products %}
+    
+                    <div class="col-md-4">
+                        
+                    
+                            
+                                <h4 class="card-title mt-1">{{ product.name }}</h4>
+                                <hr>
+                                <h4>Cultivation</h4>
+                                <h3 style="color: rgb(16, 52, 107)" class="card-subtitle mt-1">{{ product.cultivate }}</h3>
+                                <hr>
+                                <h4>fertilizer</h4>
+                                <h3 style="color: rgb(16, 52, 107)" class="card-subtitle mt-1">{{ product.Fertilizer }}</h3>
+                                <hr>
+                                <h4>harvesting</h4>
+                                <h3 style="color: rgb(16, 52, 107)" class="card-subtitle mt-1">{{ product.harvest }}</h3>
+                                
+                                
+                        
+                    
+                    </div>
+    
+                {% endfor %}
+    
+            {% else %}
+                 <p>No Products available </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+

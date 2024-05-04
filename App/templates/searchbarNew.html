@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="{% static 'css1/bootstrap.min.css' %}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'css1/style.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css11/bootstrap.min.css' %}" />
+    <title>{{product.name}}</title>
+  </head>
+  <body>
+
+ <!-- header -->
+ <header class="header-area">
+  <div class="container-fluid">
+     <div class="row d_flex">
+        <div class=" col-md-2 col-sm-3">
+           <div class="logo">
+              <a href="Home_PAGE.html" style="font-size: 30px;">Farm<span>Docc</span></a>
+           </div>
+        </div>
+        <div class="col-md-8 col-sm-9">
+           <div class="navbar-area">
+              <nav class="site-navbar">
+                 <ul>
+                    <li><a class="active" href="{% url 'homepage' %}">Home</a></li>
+                    <li><a href="{% url 'product' %}">Product</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                      <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                    
+                    
+
+                 </ul>
+                 <button class="nav-toggler">
+                 <span></span>
+                 </button>
+              </nav>
+              <div class="col-md-2 padd_0 d_none">
+                <ul class="email text_align_right" style="padding-top: 1.4em; padding-left: 20em;">
+                 {% comment %} <li><a href="Landing_PAGE.html" style="color:#6b7908; font-weight: bold; font-size: 25px;"style="padding-right:10em;" >Logout</a> {% endcomment %}
+                </ul>
+             </div>
+           </div>
+        </div>
+        <!-- <div class="col-md-2 padd_0 d_none">
+           <ul class="email text_align_right">
+            <li><a href=".Landingpage.com" style="color:#6b7908; font-weight: bold; font-size: 25px;">Logout</a>
+           </ul>
+        </div> -->
+     </div>
+  </div>
+  
+</header>
+<!-- end header inner -->
+
+
+    
+
+
+    <div class="mx-2 p-0">
+
+      <div
+        class="container-xl mb-5 border-0 rounded-4"
+        style="
+          background-image: url(./asset/img/onions.jpg);
+          background-size: cover;
+          {% comment %} height: 500px;
+          width: 1500px; {% endcomment %}
+          background-position: center;
+          margin-top: 150px;
+        "
+      ></div>
+      {% if products %}
+        {% for product in products %}
+
+      <div id="myaccordion" class="accordion container-xl mb-5">
+        <div class="accordion-item bg-success">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button bg-success"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+            >
+              <p class="text-white">cultivation</p>
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#myaccordion"
+          >
+            <div class="accordion-body">
+              <p class="text-white">
+                {{ product.cultivate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="myaccordiontwo" class="accordion container-xl mb-5">
+        <div class="accordion-item bg-success">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button bg-success"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+            >
+              <p class="text-white">Harvest</p>
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#myaccordiontwo"
+          >
+            <div class="accordion-body">
+              <p class="text-white">
+                {{ product.harvest }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="myaccordionthree" class="accordion container-xl mb-5">
+        <div class="accordion-item bg-success">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button bg-success"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsethree"
+            >
+              <p class="text-white">Fertilization</p>
+            </button>
+          </h2>
+          <div
+            id="collapsethree"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#myaccordionthree"
+          >
+            <div class="accordion-body">
+              <p class="text-white">
+                {{ product.Fertilizer }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    
+    {% else %}
+                 <p>No Products available </p>
+    {% endif %}
+          
+           
+
+       <!--  footer -->
+ <footer>
+  <div class="footer">
+     <div class="container">
+        <div class="row">
+                  <div class="col-lg-3 col-md-6">
+                    <div class="hedingh3  text_align_left">
+                       <h3>Newsletter</h3>
+                       <form id="colof" class="form_subscri">
+                          <input class="newsl" placeholder="Enter Email" type="text" name="Email">
+                          <button class="subsci_btn"><img src="images/new.png" alt="#"/></button>
+                       </form>
+                       
+                    </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6">
+                    <div class="hedingh3 text_align_left">
+                       <h3> Explore</h3>
+                       <ul class="menu_footer">
+                          <li><a class="active" href="index.html">Home</a></li>
+                          <li><a href="service.html">Product</a></li>
+                          <li><a href="about.html">About</a></li>
+                          <li><a href="blog.html">Blog</a></li>
+                          <li><a href="testimonail.html">Contact Us</a></li>
+                          </ul>
+                    </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6">
+                    <div class="hedingh3 text_align_left">
+                       <h3>Recent Posts</h3>
+                       <ul class="recent">
+                          <li><img src="{% static 'images/resent.jpg' %}" alt="#"/>Vegetables and some njhfajf</li>
+                          <li><img src="{% static 'tomatoes.jpg' %}" alt="#"/>ea commodo consequat. Duis aute </li>
+                       </ul>
+                    </div>
+                 </div>
+                  <div class="col-lg-3 col-md-6">
+                    <div class="hedingh3  flot_right text_align_left">
+                       <h3>ContacT</h3>
+                       <ul class="top_infomation">
+                          <li><i class="fa fa-phone" aria-hidden="true"></i>
+                             +233-54-772-8884
+                          </li>
+                          <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                             <a href="Javascript:void(0)">adue37737@gmail.com</a>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+           </div>
+      
+     <div class="copyright">
+        <div class="container">
+           <div class="row d_flex">
+              <div class="col-md-8">
+                 <p>© 2024 All Rights Reserved</p>
+              </div>
+              <div class="col-md-4">
+                    <ul class="social_icon ">
+                       <li><a href="facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                       <li><a href="twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                       <li><a href="linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</footer>
+<!-- end footer -->
+    </div>
+    <script src="{% static 'js11/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
