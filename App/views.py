@@ -17,7 +17,7 @@ def SignUP_Form(request):
         password = request.POST.get('pass1')
         confirm = request.POST.get('pass2')
 
-        if len(password) < 8:
+        if len(password) < 8 and len(password)== 8:
             messages.warning(request, "Password must be at least 8 characters long.")
             return redirect('/SignUP_Form')
 
