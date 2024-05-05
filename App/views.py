@@ -59,10 +59,10 @@ def Login_Form(request):
         myuser = authenticate(username=username, password=password)
         if myuser is not None:
             login(request, myuser)
-            messages.success(request, 'login success')
+            messages.success(request, 'login successful')
             return redirect('/homepage')
         else:
-            messages.error(request, 'invalid')
+            messages.error(request, 'Login unsuccessful')
             return redirect('/Login_Form')
     return render(request, 'Login_Form.html' )
 
